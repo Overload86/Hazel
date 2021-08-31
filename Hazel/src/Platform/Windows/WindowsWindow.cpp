@@ -57,7 +57,7 @@ namespace Hazel {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-		HZ_CORE_INFO("Creathing window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		HZ_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized)
 		{
@@ -68,7 +68,7 @@ namespace Hazel {
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Height, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		HZ_CORE_ASSERT(status, "Failed to initialize Glad!");
