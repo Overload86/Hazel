@@ -6,7 +6,7 @@ workspace "Hazel"
 		"Debug",
 		"Release",
 		"Dist"
-	}
+	} 
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
