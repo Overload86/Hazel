@@ -6,6 +6,8 @@
 
 #include <glad/glad.h>
 
+#include "Platform/Windows/WindowsInput.h"
+
 namespace Hazel {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -23,16 +25,16 @@ namespace Hazel {
 	Application::~Application()
 	{
 	}
-
-	void Application::Run()
+	void Application::PushLayer(Layer* layer)
 	{
-		while (m_Running)
-		{
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
+	}
 
-			m_Window->OnUpdate();
-		}
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
@@ -48,16 +50,20 @@ namespace Hazel {
 		}
 	}
 
-	void Application::PushLayer(Layer* layer)
+	void Application::Run()
 	{
-		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
-	}
+		while (m_Running)
+		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 
-	void Application::PushOverlay(Layer* layer)
-	{
-		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
+			HZ_CORE_TRACE("{0}, {1}", Input::GetMouseX(), Input::GetMouseY());
+
+			m_Window->OnUpdate();
+		}
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

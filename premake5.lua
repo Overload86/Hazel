@@ -1,4 +1,5 @@
 workspace "Hazel"
+	startproject "Sandbox"
 	architecture "x64"
 
 	configurations
@@ -68,6 +69,7 @@ project "Hazel"
 
 		postbuildcommands
 		{
+			("{MKDIR} ../bin/" .. outputdir .. "/Sandbox"),
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
