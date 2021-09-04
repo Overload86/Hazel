@@ -6,7 +6,7 @@
 
 #include <glad/glad.h>
 
-#include "Platform/Windows/WindowsInput.h"
+#include "Input.h"
 
 namespace Hazel {
 
@@ -60,7 +60,7 @@ namespace Hazel {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			HZ_CORE_TRACE("{0}, {1}", Input::GetMouseX(), Input::GetMouseY());
+			// HZ_CORE_TRACE("{0}, {1}", Input::GetMouseX(), Input::GetMouseY());
 
 			m_Window->OnUpdate();
 		}
