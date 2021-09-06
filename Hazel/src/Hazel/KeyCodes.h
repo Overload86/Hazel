@@ -120,10 +120,10 @@
 #define HZ_KEY_LEFT_CONTROL       341
 #define HZ_KEY_LEFT_ALT           342
 #define HZ_KEY_LEFT_SUPER         343
+#define HZ_KEY_LEFT_WINDOWS       HZ_KEY_LEFT_SUPER
 #define HZ_KEY_RIGHT_SHIFT        344
 #define HZ_KEY_RIGHT_CONTROL      345
-#define HZ_KEY_RIGHT_WINDOWS      345
 #define HZ_KEY_RIGHT_ALT          346
 #define HZ_KEY_RIGHT_SUPER        347
-#define HZ_KEY_RIGHT_WINDOWS      347
+#define HZ_KEY_RIGHT_WINDOWS      HZ_KEY_RIGHT_SUPER
 #define HZ_KEY_MENU               348
