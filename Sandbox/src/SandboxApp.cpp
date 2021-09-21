@@ -18,7 +18,7 @@ public:
 class Sandbox : public Hazel::Application
 {
 public:
-	Sandbox() 
+	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
 	}
