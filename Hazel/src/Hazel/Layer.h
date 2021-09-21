@@ -4,7 +4,7 @@
 #include "Events/Event.h"
 
 namespace Hazel {
-class HAZEL_API Layer {
+class Layer {
   public:
     Layer(const std::string& debugname = "Layer");
     virtual ~Layer();

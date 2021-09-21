@@ -2,7 +2,7 @@
 
 #include "Hazel/Renderer/GraphicsContext.h"
 
-class GLFWwindow;
+struct GLFWwindow;
 
 namespace Hazel {
 

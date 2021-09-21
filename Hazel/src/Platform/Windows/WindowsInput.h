@@ -4,20 +4,18 @@
 
 namespace Hazel {
 
-    class WindowsInput : public Input
-    {
-    protected:
-        // Inherited via Input
-        virtual bool IsKeyPressedImpl(int keycode) override;
+class WindowsInput : public Input {
+  protected:
+    // Inherited via Input
+    virtual bool IsKeyPressedImpl(int keycode) override;
 
-        virtual bool IsMouseButtonPressedImpl(int button) override;
-    
-        virtual MOUSE_POS GetMousePositionImpl() override;
+    virtual bool IsMouseButtonPressedImpl(int button) override;
 
-        virtual float GetMouseXImpl() override;
+    virtual MOUSE_POS GetMousePositionImpl() override;
 
-        virtual float GetMouseYImpl() override;
+    virtual float GetMouseXImpl() override;
 
-    };
+    virtual float GetMouseYImpl() override;
+};
 
-}
+} // namespace Hazel
