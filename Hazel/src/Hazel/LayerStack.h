@@ -4,7 +4,7 @@
 #include "Layer.h"
 
 namespace Hazel {
-class LayerStack {
+class HAZEL_API LayerStack {
   public:
     LayerStack();
     ~LayerStack();

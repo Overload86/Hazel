@@ -4,7 +4,7 @@
 
 namespace Hazel {
 
-class KeyEvent : public Event {
+class HAZEL_API KeyEvent : public Event {
   public:
     inline int GetKeyCode() const { return m_KeyCode; }
 
@@ -15,7 +15,7 @@ class KeyEvent : public Event {
     int m_KeyCode;
 };
 
-class KeyPressedEvent : public KeyEvent {
+class HAZEL_API KeyPressedEvent : public KeyEvent {
   public:
     KeyPressedEvent(int keycode, int repeatCount)
         : KeyEvent(keycode), m_RepeatCount(repeatCount) {}
@@ -35,7 +35,7 @@ class KeyPressedEvent : public KeyEvent {
     int m_RepeatCount;
 };
 
-class KeyReleasedEvent : public KeyEvent {
+class HAZEL_API KeyReleasedEvent : public KeyEvent {
   public:
     KeyReleasedEvent(int keycode) : KeyEvent(keycode) {}
 
@@ -48,7 +48,7 @@ class KeyReleasedEvent : public KeyEvent {
     EVENT_CLASS_TYPE(KeyReleased)
 };
 
-class KeyTypedEvent : public KeyEvent {
+class HAZEL_API KeyTypedEvent : public KeyEvent {
   public:
     KeyTypedEvent(int keycode) : KeyEvent(keycode) {}
 

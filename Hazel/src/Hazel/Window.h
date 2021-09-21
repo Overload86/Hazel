@@ -18,7 +18,7 @@ struct WindowProps {
 };
 
 // Interface representing a desktop system based Window
-class Window {
+class HAZEL_API Window {
   public:
     using EventCallbackFn = std::function<void(Event&)>;
 
