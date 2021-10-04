@@ -2,42 +2,42 @@
 
 #include "Core.h"
 
-#include "Window.h"
-#include "LayerStack.h"
-#include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
+#include "Events/Event.h"
+#include "LayerStack.h"
+#include "Window.h"
 
 #include "Hazel/ImGui/ImGuiLayer.h"
 
-
 namespace Hazel {
 
-	class Application
-	{
-	public:
-		Application();
-		virtual ~Application();
+class Application {
+  public:
+    Application();
+    virtual ~Application();
 
-		void Run();
+    void Run();
 
-		void OnEvent(Event& e);
+    void OnEvent(Event& e);
 
-		void PushLayer(Layer* layer);
-		void PushOverlay(Layer* layer);
+    void PushLayer(Layer* layer);
+    void PushOverlay(Layer* layer);
 
-		inline static Application& Get() { return *s_Instance; }
-		inline Window& GetWindow() { return *m_Window; }
-	private:
-		bool OnWindowClose(WindowCloseEvent& e);
+    inline static Application& Get() { return *s_Instance; }
+    inline Window&             GetWindow() { return *m_Window; }
 
-		std::unique_ptr<Window> m_Window;
-		ImGuiLayer* m_ImGuiLayer;
-		bool m_Running = true;
-		LayerStack m_LayerStack;
-	private:
-		static Application* s_Instance;
-	};
+  private:
+    bool OnWindowClose(WindowCloseEvent& e);
 
-	// To be defined in Client
-	Application* CreateApplication();
-}
+    std::unique_ptr<Window> m_Window;
+    ImGuiLayer*             m_ImGuiLayer;
+    bool                    m_Running = true;
+    LayerStack              m_LayerStack;
+
+  private:
+    static Application* s_Instance;
+};
+
+// To be defined in Client
+Application* CreateApplication();
+} // namespace Hazel
